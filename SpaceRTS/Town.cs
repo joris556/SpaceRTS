@@ -14,6 +14,7 @@ namespace SpaceRTS
 		public Town() : base()
 		{
 			GameObjects = new List<GameObject>();
+            mainScreen = true;
 		}
 
 		public override void Update(GameTime gt)

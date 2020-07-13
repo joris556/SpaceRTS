@@ -18,6 +18,8 @@ namespace SpaceRTS
         public PlayingState() : base()
         {
             gameObjects = new List<GameObject>();
+            mainScreen = new Town();
+            secondScreen = new Pit();
         }
 
         public override void Update(GameTime gt)

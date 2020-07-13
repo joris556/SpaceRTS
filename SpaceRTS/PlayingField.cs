@@ -31,7 +31,8 @@ namespace SpaceRTS
 			cameraOffset = Vector2.Zero;
 			scale = 0f;
 			mainScreen = true;
-		}
+            gameObjects.Add(new TestObject());
+        }
 
 		public virtual void Update(GameTime gt)
 		{
