@@ -11,11 +11,21 @@ namespace SpaceRTS
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        GameEnvironment gameEnvironment;
+        InputHelper inputHelper;
+        static AssetHelper assetHelper;
+        internal static AssetHelper AssetHelper { get => assetHelper; }
 
         public Game1()
         {
+            this.IsMouseVisible = true;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.SynchronizeWithVerticalRetrace = true;
+            //this.TargetElapsedTime = TimeSpan.FromSeconds(1d / 60d);
+            graphics.PreferredBackBufferHeight = Constants.screenSize.Y;
+            graphics.PreferredBackBufferWidth = Constants.screenSize.X;
+            assetHelper = new AssetHelper(Content);
         }
 
         /// <summary>
@@ -39,6 +49,8 @@ namespace SpaceRTS
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            gameEnvironment = new GameEnvironment();
+            inputHelper = new InputHelper();
 
             // TODO: use this.Content to load your game content here
         }
@@ -62,7 +74,9 @@ namespace SpaceRTS
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            inputHelper.Update(gameTime);
+            gameEnvironment.HandleInput(inputHelper);
+            gameEnvironment.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -74,10 +88,12 @@ namespace SpaceRTS
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            gameEnvironment.Draw(gameTime, spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
+
         }
     }
 }
