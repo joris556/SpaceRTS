@@ -14,6 +14,12 @@ namespace SpaceRTS
     {
         public static Point screenSize = new Point(1920, 1080);
         public static float scale = 1f;
+		public static float sScale = 0.2f;
+
+		public static Vector2 SOffset()
+		{
+			return screenSize.ToVector2() - sScale * screenSize.ToVector2();
+		}
 
     }
 }

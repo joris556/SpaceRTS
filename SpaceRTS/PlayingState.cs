@@ -13,6 +13,7 @@ namespace SpaceRTS
     class PlayingState : GameState
     {
         List<GameObject> gameObjects;
+		PlayingField mainScreen, secondScreen;
 
         public PlayingState() : base()
         {
@@ -21,20 +22,34 @@ namespace SpaceRTS
 
         public override void Update(GameTime gt)
         {
-            foreach (GameObject g in gameObjects)
-                g.Update(gt);
-        }
+			mainScreen.Update(gt);
+			secondScreen.Update(gt);
+		}
 
-        public override void HandleInput(InputHelper ih)
+		public override void HandleInput(InputHelper ih)
         {
-            foreach (GameObject g in gameObjects)
-                g.HandleInput(ih);
-        }
+			mainScreen.HandleInput(ih);
+			if (ih.KeyPressed(Keys.K))
+			{
+				Switch();
+			}
+		}
 
         public override void Draw(GameTime gt, SpriteBatch sb)
         {
-            foreach (GameObject g in gameObjects)
-                g.Draw(gt, sb);
-        }
+			mainScreen.Draw(gt, sb);
+			secondScreen.Draw(gt, sb);
+		}
+
+		public void Switch()
+		{
+			PlayingField temp = mainScreen;
+			mainScreen = secondScreen;
+			secondScreen = temp;
+			mainScreen.MainScreen = true;
+			secondScreen.MainScreen = false;
+			mainScreen.Switch();
+			secondScreen.Switch();
+		}
     }
 }
