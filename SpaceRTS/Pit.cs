@@ -10,8 +10,6 @@ namespace SpaceRTS
 {
 	class Pit : PlayingField
 	{
-		List<GameObject> gameObjects;
-
 		public Pit() : base()
 		{
 			gameObjects = new List<GameObject>();
