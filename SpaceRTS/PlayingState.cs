@@ -14,13 +14,14 @@ namespace SpaceRTS
     {
         List<GameObject> gameObjects;
 		PlayingField mainScreen, secondScreen;
+		UIMenu UIMenu;
 
         public PlayingState() : base()
         {
             gameObjects = new List<GameObject>();
             mainScreen = new Town();
             secondScreen = new Pit();
-
+			UIMenu = new UIMenu();
             Switch();
             Switch();
         }
@@ -29,11 +30,13 @@ namespace SpaceRTS
         {
 			mainScreen.Update(gt);
 			secondScreen.Update(gt);
+			UIMenu.Update(gt);
 		}
 
 		public override void HandleInput(InputHelper ih)
         {
 			mainScreen.HandleInput(ih);
+			UIMenu.HandleInput(ih);
 			if (ih.KeyPressed(Keys.K))
 			{
 				Switch();
@@ -44,6 +47,7 @@ namespace SpaceRTS
         {
 			mainScreen.Draw(gt, sb);
 			secondScreen.Draw(gt, sb);
+			UIMenu.Draw(gt, sb);
 		}
 
 		public void Switch()

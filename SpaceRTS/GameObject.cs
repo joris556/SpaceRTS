@@ -20,7 +20,7 @@ namespace SpaceRTS
 		protected Vector2 sOffset;
 		protected float zoomScale;
 		protected float sScale;
-		protected bool mainScreen;
+		protected bool mainScreen = true;
 
 
 
