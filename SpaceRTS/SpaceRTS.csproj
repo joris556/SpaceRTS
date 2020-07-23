@@ -58,6 +58,7 @@
     <Compile Include="Town.cs" />
     <Compile Include="UIMenu.cs" />
     <Compile Include="UIObject.cs" />
+    <Compile Include="Unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
