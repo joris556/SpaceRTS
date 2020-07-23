@@ -24,6 +24,19 @@ namespace SpaceRTS
 		public bool MainScreen { get => mainScreen; set => mainScreen = value; }
 		public List<UIObject> UIOBJECTS{ get => UIObjects; set => UIObjects = value; }
 
+		public UIMenu()
+		{
+			UIObjects = new List<UIObject>();
+			offset = Vector2.Zero;
+			cameraOffset = Vector2.Zero;
+			scale = 0f;
+			mainScreen = true;
+
+			AddUIObjects();
+
+		}
+
+
 		public void Update(GameTime gt)
 		{
 			foreach (UIObject g in UIObjects)
@@ -44,5 +57,9 @@ namespace SpaceRTS
 
 		}
 
+		private void AddUIObjects()
+		{
+			UIObjects.Add(new DNDObject() { Position = new Vector2(2, 2), Sprite = Game1.AssetHelper.GetSprite("factory"), Clickbox = new Rectangle(2, 2, 100, 100), Spritebox = new Rectangle(0 , 0, 100, 100)  });
+		}
 	}
 }

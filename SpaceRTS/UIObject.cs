@@ -17,7 +17,7 @@ namespace SpaceRTS
 		protected float rotation;
 		protected bool visible = true;
 		protected Vector2 origin;
-		protected bool mainScreen;
+		protected bool mainScreen = true;
 
 
 
@@ -32,7 +32,7 @@ namespace SpaceRTS
 
 		public UIObject()
 		{
-
+			position = position + Constants.POffset();
 		}
 
 		public virtual void Update(GameTime gt)
