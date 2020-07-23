@@ -59,7 +59,7 @@ namespace SpaceRTS
 				if (mainScreen)
 					sb.Draw(sprite, (position + cameraOffset + origin) * zoomScale, spritebox, Color.White, rotation, origin, Constants.scale, SpriteEffects.None, 0f);
 				else
-					sb.Draw(sprite, ((position + cameraOffset + origin) * zoomScale * Constants.sScale) + Constants.SOffset(), spritebox, Color.White, rotation, origin, Constants.scale, SpriteEffects.None, 0f);
+					sb.Draw(sprite, ((position + cameraOffset + origin) * zoomScale * Constants.sScale) + Constants.SOffset(), spritebox, Color.White, rotation, origin, Constants.scale * Constants.sScale, SpriteEffects.None, 0f);
 			}
 		}
 	}
