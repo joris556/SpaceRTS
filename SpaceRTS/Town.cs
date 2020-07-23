@@ -13,7 +13,6 @@ namespace SpaceRTS
 
 		public Town() : base()
 		{
-			GameObjects = new List<GameObject>();
             mainScreen = true;
 		}
 

@@ -12,7 +12,6 @@ namespace SpaceRTS
 	{
 		public Pit() : base()
 		{
-			gameObjects = new List<GameObject>();
             mainScreen = false;
 		}	
 

@@ -36,27 +36,27 @@ namespace SpaceRTS
 
 		public virtual void Update(GameTime gt)
 		{
-			foreach (GameObject g in GameObjects)
+			foreach (GameObject g in gameObjects)
 				g.Update(gt);
 		}
 
 		public virtual void HandleInput(InputHelper ih)
 		{
-			foreach (GameObject g in GameObjects)
+			foreach (GameObject g in gameObjects)
 				g.HandleInput(ih);
 		}
 
 		public virtual void Draw(GameTime gt, SpriteBatch sb)
 		{
 
-			foreach (GameObject g in GameObjects)
+			foreach (GameObject g in gameObjects)
 				g.Draw(gt, sb);
 
 		}
 
 		public virtual void Switch()
 		{
-			foreach (GameObject g in GameObjects)
+			foreach (GameObject g in gameObjects)
 				g.MainScreen = mainScreen;
 		}
 	}
