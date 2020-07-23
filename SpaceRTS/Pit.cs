@@ -13,6 +13,7 @@ namespace SpaceRTS
 		public Pit() : base()
 		{
             mainScreen = false;
+            gameObjects[0].Rotation = 0.6f;
 		}	
 
 		public override void Update(GameTime gt)

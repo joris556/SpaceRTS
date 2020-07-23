@@ -20,6 +20,9 @@ namespace SpaceRTS
             gameObjects = new List<GameObject>();
             mainScreen = new Town();
             secondScreen = new Pit();
+
+            Switch();
+            Switch();
         }
 
         public override void Update(GameTime gt)
